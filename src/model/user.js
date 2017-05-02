@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let userSchema = new Schema({
+const userSchema = new Schema({
   name: String
-})
+});
 
 module.exports = mongoose.model('User', userSchema);
