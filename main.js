@@ -13,14 +13,9 @@ var cookieParser = require('cookie-parser');
 var authRoutes = require('./routes/authroutes');
 var routes = require('./routes/routes');
 var debug = require('debug')('dev');
-var database = mongoose.connect('mongodb://localhost/burlywood');
+var database = mongoose.connect('mongodb://localhost/slacky-slack');
 var flash = require('connect-flash');
 
-app.use(express.static(path.join(__dirname + '/public')));
-app.use('/bower_components', express.static(path.join(__dirname + '/bower_components')));
-app.set('views', __dirname + '/public/views');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

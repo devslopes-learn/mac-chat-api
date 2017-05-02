@@ -1,1 +1,13 @@
-/node_modules
+adminMongo/
+dist/
+dev/
+staging/
+logs/
+npm-debug.log
+node_modules/
+.DS_Store
+.vscode
+dump.tar.gz
+dump/
+coverage
+*.orig
