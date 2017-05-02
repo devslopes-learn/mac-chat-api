@@ -13,7 +13,7 @@ var cookieParser = require('cookie-parser');
 var authRoutes = require('./routes/authroutes');
 var routes = require('./routes/routes');
 var debug = require('debug')('dev');
-var database = mongoose.connect('mongodb://localhost/local');
+var database = mongoose.connect('mongodb://localhost/slackyLocal');
 var flash = require('connect-flash');
 
 app.use(morgan('dev'));
