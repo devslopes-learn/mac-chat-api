@@ -16,11 +16,28 @@ your development skills to the next level, check out our API course.
 #####Dependencies
 *  npm - the `package.json` file lists all of the npm dependencies
 
-#####Getting Started
+#### Devslopes REST API with ES6 and Express.
 
-1.  Clone this repo and navigate into the main directory
-2.  From terminal run `sudo npm install`
-3.  Starting the app:
-  *  If mongod isn't already running, open a new terminal tab or window and enter `mongod` (then go back to your previous terminal window)
-  *  If you want debug logging run from terminal `DEBUG=dev node main.js` or `DEBUG=dev nodemon main.js` if you use nodemon
-  *  Omit `DEBUG=dev` if you don't want logging: `node main.js`
+- ES6 support via [babel](https://babeljs.io)
+- REST resources as middleware via [resource-router-middleware](https://github.com/developit/resource-router-middleware)
+- CORS support via [cors](https://github.com/troygoode/node-cors)
+- Body Parsing via [body-parser](https://github.com/expressjs/body-parser)
+- Automatically expose Models as REST resources using [restful-mongoose](https://git.io/restful-mongoose).
+- Unit Testing with [mocha](https://github.com/mochajs/mocha) and [chai](https://github.com/chaijs/chail)
+
+Getting Started
+---------------
+
+```sh
+# Install dependencies
+npm install
+
+# Start local development live-reload server port 3005:
+npm run dev
+
+# Requests made in the form http://localhost:3003/localdev/v1/endpoint
+
+# To build ES6 code
+npm run build
+
+```
