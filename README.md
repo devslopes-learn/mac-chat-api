@@ -19,9 +19,11 @@ your development skills to the next level, check out our API course.
 #### Devslopes REST API with ES6 and Express.
 
 - ES6 support via [babel](https://babeljs.io)
-- REST resources as middleware via [resource-router-middleware](https://github.com/developit/resource-router-middleware)
+- Express is Node.js web application framework via [express](https://github.com/expressjs/express)
+- Passport authentication for Node.js via [passport](https://github.com/passport)
+- Socket.IO enables real-time bidirectional event-based communication via [socket.io](https://github.com/socketio/socket.io)
+- Mongoose is a MongoDB object modeling tool via [mongoose](https://github.com/Automattic/mongoose)
 - Body Parsing via [body-parser](https://github.com/expressjs/body-parser)
-- Automatically expose Models as REST resources using [restful-mongoose](https://git.io/restful-mongoose).
 
 Getting Started
 ---------------
