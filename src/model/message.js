@@ -6,10 +6,10 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const messageSchema = new Schema({
-  body: String, default: "",
-  timeStamp: type: Date, default: Date.now,
-  userId: ObjectId, ref: 'User',
-  channelId: ObjectId, ref: 'Channel'
+  messageBody: String, default: "",
+  timeStamp: {type: Date, default: Date.now},
+  userId: {type: ObjectId, ref: 'User'},
+  channelId: {type: ObjectId, ref: 'Channel'}
 });
 
 module.exports = mongoose.model('Message', messageSchema);
