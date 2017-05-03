@@ -2,6 +2,7 @@ import http from 'http';
 import express from 'express';
 import bodyParser from 'body-parser';
 import passport from 'passport';
+import socket from 'socket.io';
 
 const LocalStrategy  = require('passport-local').Strategy;
 
@@ -10,6 +11,7 @@ import routes from './routes';
 
 let app = express();
 app.server = http.createServer(app);
+let io = socket(app.server);
 
 //middleware
 //parse application/json
@@ -31,6 +33,10 @@ passport.deserializeUser(Account.deserializeUser());
 
 //api routes v1
 app.use('/v1', routes);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 
 app.server.listen(config.port);
 console.log(`Started on port ${app.server.address().port}`);
