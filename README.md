@@ -16,7 +16,7 @@ your development skills to the next level, check out our API course.
 ##### Dependencies
 *  npm - the `package.json` file lists all of the npm dependencies
 
-#### Devslopes REST API with ES6 and Express.
+#### Chat App REST API with ES6 and Express.
 
 - ES6 support via [babel](https://babeljs.io)
 - Express is Node.js web application framework via [express](https://github.com/expressjs/express)
