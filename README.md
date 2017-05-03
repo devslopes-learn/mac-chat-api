@@ -4,7 +4,7 @@ Prebuilt api for slack app clone.
 This project is the API for creating a slack clone.  No need to understand any of code here.  But if you are interested in taking
 your development skills to the next level, check out our API course.
 
-#####How It Works
+##### How It Works
 
 1.  User account creation and login are built-in using passport
   *  Login at `/v1/account/login`
@@ -13,7 +13,7 @@ your development skills to the next level, check out our API course.
   *  Data that you want made to the public (without a user first loggin in) can omit the `authenticated` middleware
 3.  Currently the express app assumes the database is on the localhost. You can change the URL of the Mongo database to any location.
 
-#####Dependencies
+##### Dependencies
 *  npm - the `package.json` file lists all of the npm dependencies
 
 #### Devslopes REST API with ES6 and Express.
