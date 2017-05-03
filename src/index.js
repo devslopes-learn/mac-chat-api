@@ -2,6 +2,7 @@ import http from 'http';
 import express from 'express';
 import bodyParser from 'body-parser';
 import passport from 'passport';
+
 const LocalStrategy  = require('passport-local').Strategy;
 
 import config from './config';

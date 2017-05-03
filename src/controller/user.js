@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-mongoose.Promise = Promise;
 import { Router } from 'express';
 import bodyParser from 'body-parser';
 import User from '../model/user';
@@ -52,6 +51,9 @@ export default({ config, db }) => {
         res.send(err);
       }
       user.name = req.body.name;
+      user.email = req.body.email;
+      user.avatarName = req.body.avatarName;
+      user.avatarHex = req.body.avatarHex;
       user.save(err => {
         if (err) {
           res.send(err);
@@ -82,6 +84,16 @@ export default({ config, db }) => {
         res.send(err)
       }
       res.json({ message: 'User Successfully Removed'});
+    });
+  });
+
+  // '/v1/user/' - Delete all
+  api.delete('/', authenticate, (req, res) => {
+    User.find({}, (err, users) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json({ message: 'Users All Removed'});
     });
   });
 
