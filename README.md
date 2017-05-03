@@ -33,7 +33,7 @@ npm install
 # Start local development live-reload server port 3005:
 npm run dev
 
-# Requests made in the form http://localhost:3003/localdev/v1/endpoint
+# Requests made in the form http://localhost:3005/v1/endpoint
 
 # To build ES6 code
 npm run build
