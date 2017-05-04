@@ -14,6 +14,9 @@ export default({ config, db }) => {
     newMessage.messageBody = req.body.messageBody;
     newMessage.userId = req.body.userId;
     newMessage.channelId = req.body.channelId;
+    newMessage.userName = req.body.userName;
+    newMessage.userAvatar = req.body.userAvatar;
+    newMessage.userAvatarHex = req.body.userAvatarHex;
 
     newMessage.save(err => {
       if (err) {
@@ -32,6 +35,10 @@ export default({ config, db }) => {
       message.messageBody = req.body.messageBody;
       message.userId = req.body.userId;
       message.channelId = req.body.channelId;
+      newMessage.userName = req.body.userName;
+      newMessage.userAvatar = req.body.userAvatar;
+      newMessage.userAvatarHex = req.body.userAvatarHex;
+      
       message.save(err => {
         if (err) {
           res.send(err);
