@@ -8,6 +8,11 @@ import { authenticate } from '../middleware/authMiddleware';
 export default({ config, db }) => {
   let api = Router();
 
+  // '/v1/message'
+  api.get('/', (req, res) => {
+    res.json({ message: 'Message saved successfully' })
+  });
+
   // '/v1/message/add' - Create
   api.post('/add', authenticate, (req, res) => {
     let newMessage = new Message();
