@@ -38,7 +38,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
 });
 
-app.server.listen(config.port);
+app.server.listen(process.env.PORT);
 console.log(`Started on port ${app.server.address().port}`);
 
 export default app;
