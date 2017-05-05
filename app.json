@@ -3,20 +3,7 @@
   "description": "Prebuilt api for slack app clone.",
   "website": "https://github.com/devslopes/mac-chat-api",
   "repository": "https://github.com/devslopes/mac-chat-api",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
-  "success_url": "/",
-  "keywords": [
-    "node",
-    "express",
-    "socket.io",
-    "realtime",
-    "websocket"
-  ],
-  "scripts": {
-  },
-  "addons": [
-  ],
-  "env": {
-    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs"
-  }
+  "logo": "https://mlab.com/company/brand/resources/mLab-logo-onlight.png",
+  "keywords": ["node", "express", "angular", "angular2", "MEAN", "mongodb", "REST", "API"],
+  "addons": ["mongolab"]
 }
