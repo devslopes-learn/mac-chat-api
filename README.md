@@ -28,10 +28,6 @@ your development skills to the next level, check out our API course.
 Getting Started
 ---------------
 
-You can also spin up a free Heroku dyno to test it out:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/devslopes/mac-chat-api)
-
 ```sh
 # Install dependencies
 npm install
@@ -45,3 +41,7 @@ npm run dev
 npm run build
 
 ```
+
+You can also spin up a free Heroku dyno to test it out:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/devslopes/mac-chat-api)
