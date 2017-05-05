@@ -14,7 +14,7 @@ export default({ config, db }) => {
     newUser.name = req.body.name;
     newUser.email = req.body.email;
     newUser.avatarName = req.body.avatarName;
-    newUser.avatarHex = req.body.avatarHex;
+    newUser.avatarColor = req.body.avatarColor;
 
     newUser.save(err => {
       if (err) {
@@ -53,7 +53,7 @@ export default({ config, db }) => {
       user.name = req.body.name;
       user.email = req.body.email;
       user.avatarName = req.body.avatarName;
-      user.avatarHex = req.body.avatarHex;
+      user.avatarColor = req.body.avatarColor;
       user.save(err => {
         if (err) {
           res.send(err);
