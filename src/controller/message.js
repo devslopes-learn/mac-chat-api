@@ -16,7 +16,7 @@ export default({ config, db }) => {
     newMessage.channelId = req.body.channelId;
     newMessage.userName = req.body.userName;
     newMessage.userAvatar = req.body.userAvatar;
-    newMessage.userAvatarHex = req.body.userAvatarHex;
+    newMessage.userAvatarColor = req.body.userAvatarColor;
 
     newMessage.save(err => {
       if (err) {
@@ -37,8 +37,8 @@ export default({ config, db }) => {
       message.channelId = req.body.channelId;
       newMessage.userName = req.body.userName;
       newMessage.userAvatar = req.body.userAvatar;
-      newMessage.userAvatarHex = req.body.userAvatarHex;
-      
+      newMessage.userAvatarColor = req.body.userAvatarColor;
+
       message.save(err => {
         if (err) {
           res.send(err);

@@ -12,7 +12,7 @@ const messageSchema = new Schema({
   channelId: {type: ObjectId, ref: 'Channel'},
   userName: String, default: "",
   userAvatar: String, default: "",
-  userAvatarHex: String, default: ""
+  userAvatarColor: String, default: ""
 });
 
 module.exports = mongoose.model('Message', messageSchema);
