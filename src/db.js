@@ -4,7 +4,6 @@ import config from './config';
 
 export default callback => {
   var db;
-
   // Connect to the database before starting the application server.
   mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
     if (err) {
@@ -15,8 +14,6 @@ export default callback => {
     // Save database object from the callback for reuse.
     db = database;
     console.log("Database connection ready");
-
+    callback(db);
   });
-
-  callback(db);
 }
