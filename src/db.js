@@ -3,8 +3,20 @@ import mongodb from 'mongodb';
 import config from './config';
 
 export default callback => {
-  // let db = mongoose.connect(config.mongoUrl);
-  let db = mongodb.MongoClient.connect(process.env.MONGODB_URI);
-  // let db = mongodb.MongoClient.connect("mongodb://jacob:123456@ds133281.mlab.com:33281/heroku_xl364tn7");
+  var db;
+
+  // Connect to the database before starting the application server.
+  mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
+
+    // Save database object from the callback for reuse.
+    db = database;
+    console.log("Database connection ready");
+
+  });
+
   callback(db);
 }

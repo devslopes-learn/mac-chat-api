@@ -34,6 +34,11 @@ passport.deserializeUser(Account.deserializeUser());
 //api routes v1
 app.use('/v1', routes);
 
+// '/v1/'
+app.get('/', (req, res) => {
+  res.json({ message: 'Chat API is ALIVE!' })
+});
+
 io.on('connection', function(socket){
   console.log('a user connected');
 });
