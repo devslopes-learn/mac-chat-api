@@ -11,7 +11,7 @@ export default callback => {
       console.log(err);
       process.exit(1);
     }
-
+    console.log(process.env.MONGODB_URI);
     // Save database object from the callback for reuse.
     db = database;
     console.log("Database connection ready");
