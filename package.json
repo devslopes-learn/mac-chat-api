@@ -2,7 +2,7 @@
   "name": "slacky-slack",
   "version": "1.0.0",
   "description": "Prebuilt api for slack app clone.",
-  "main": "index.js",
+  "main": "dist",
   "scripts": {
     "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
     "build": "babel src -s -D -d dist --presets es2015,stage-0",
