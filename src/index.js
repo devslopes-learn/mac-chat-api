@@ -34,7 +34,7 @@ passport.deserializeUser(Account.deserializeUser());
 //api routes v1
 app.use('/v1', routes);
 
-// Base URL test endpoint to see if API is running 
+// Base URL test endpoint to see if API is running
 app.get('/', (req, res) => {
   res.json({ message: 'Chat API is ALIVE!' })
 });
@@ -43,7 +43,8 @@ io.on('connection', function(socket){
   console.log('a user connected');
 });
 
-app.server.listen(process.env.PORT || config.port);
+app.server.listen(config.port);
+// app.server.listen(process.env.PORT || config.port);
 console.log(`Started on port ${app.server.address().port}`);
 
 export default app;
