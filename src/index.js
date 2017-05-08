@@ -34,7 +34,7 @@ passport.deserializeUser(Account.deserializeUser());
 //api routes v1
 app.use('/v1', routes);
 
-// '/v1/'
+// Base URL test endpoint to see if API is running 
 app.get('/', (req, res) => {
   res.json({ message: 'Chat API is ALIVE!' })
 });
