@@ -75,7 +75,7 @@ io.on('connection', function(client) {
     newMessage.save(function(err, msg){
       //Send message to those connected in the room
       console.log('new message sent');
-      io.emit("messageCreated",  msg.messageBody, msg.userId, msg.channelId, msg.userAvatar, msg.userAvatarColor);
+      io.emit("messageCreated",  msg.messageBody, msg.userId, msg.channelId, msg.userAvatar, msg.userAvatarColor, msg.timeStamp);
     });
   });
 });
