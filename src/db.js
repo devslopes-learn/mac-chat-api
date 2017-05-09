@@ -3,7 +3,7 @@ import mongodb from 'mongodb';
 import config from './config';
 
 export default callback => {
-  var db;
+  let db;
   // Connect to the database before starting the application server.
   mongoose.connect(config.mongoUrl, function (err, database) {
     if (err) {
