@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
 
 /*||||||||||||||||SOCKET|||||||||||||||||||||||*/
 //Listen for connection
+var typingUsers = {};
+
 io.on('connection', function(client) {
   console.log('a user connected');
   //Listens for a new chat message
@@ -59,6 +61,20 @@ io.on('connection', function(client) {
       io.emit("channelCreated", channel.name, channel.description, channel.id);
     });
   });
+
+  //Listens for user typing.
+  client.on("startType", function(userName){
+  console.log("User " + userName + " is writing a message...");
+  typingUsers[userName] = 1;
+  io.emit("userTypingUpdate", typingUsers);
+});
+
+
+client.on("stopType", function(userName){
+  console.log("User " + userName + " has stopped writing a message...");
+  delete typingUsers[userName];
+  io.emit("userTypingUpdate", typingUsers);
+});
 
   //Listens for a new chat message
   client.on('newMessage', function(messageBody, userId, channelId, userName, userAvatar, userAvatarColor) {
