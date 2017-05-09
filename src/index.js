@@ -46,30 +46,33 @@ app.get('/', (req, res) => {
 io.on('connection', function(client) {
   console.log('a user connected');
   //Listens for a new chat message
-  client.on('newChannel', function(data) {
+  client.on('newChannel', function(name, description) {
     //Create channel
     let newChannel = new Channel({
-    name: data.name,
-    description: data.description,
+    name: name,
+    description: description,
   });
     //Save it to database
     newChannel.save(function(err, channel){
       //Send message to those connected in the room
       console.log('new channel created');
-      io.emit("channelCreated", channel.name, channel.description);
+      io.emit("channelCreated", channel.name, channel.description, channel.id);
     });
   });
 
   //Listens for a new chat message
-  client.on('newMessage', function(data) {
+  client.on('newMessage', function(messageBody, userId, channelId, userName, userAvatar, userAvatarColor) {
     //Create message
+
+    console.log(messageBody);
+
     let newMessage = new Message({
-    messageBody: data.messageBody,
-    userId: data.userId,
-    channelId: data.channelId,
-    userName: data.userName,
-    userAvatar: data.userAvatar,
-    userAvatarColor: data.userAvatarColor,
+    messageBody: messageBody,
+    userId: userId,
+    channelId: channelId,
+    userName: userName,
+    userAvatar: userAvatar,
+    userAvatarColor: userAvatarColor
   });
     //Save it to database
     newMessage.save(function(err, msg){
