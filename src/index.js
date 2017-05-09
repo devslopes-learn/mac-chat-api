@@ -44,7 +44,6 @@ app.get('/', (req, res) => {
 /*||||||||||||||||SOCKET|||||||||||||||||||||||*/
 //Listen for connection
 io.on('connection', function(client) {
-
   //Listens for a new chat message
   client.on('new channel', function(data) {
     //Create channel
@@ -73,7 +72,7 @@ io.on('connection', function(client) {
     //Save it to database
     newMessage.save(function(err, msg){
       //Send message to those connected in the room
-      io.in(msg.channelId).emit('message created', msg);
+      io.emit('message created', msg);
     });
   });
 });

@@ -5,7 +5,7 @@ import config from './config';
 export default callback => {
   var db;
   // Connect to the database before starting the application server.
-  mongodb.MongoClient.connect(config.mongoUrl, function (err, database) {
+  mongoose.connect(config.mongoUrl, function (err, database) {
     if (err) {
       console.log(err);
       process.exit(1);
