@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import config from '../config';
 import Account from '../model/account';
+import { createNewUser } from './user';
 
 import { generateAccessToken, respond, authenticate } from '../middleware/authMiddleware';
 
@@ -19,9 +20,9 @@ export default ({ config, db }) => {
       passport.authenticate(
         'local', {
           session: false
-        })(req, res, () => {
-          res.status(200).send('Successfully created new account');
-        });
+        }, (req, res, next) => {
+          createNewUser(req, res);
+    }, generateAccessToken, respond);
     });
   });
 
