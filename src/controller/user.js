@@ -18,9 +18,9 @@ export default({ config, db }) => {
 
     newUser.save(err => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'User saved successfully' })
+      res.status(200).json(newUser);
     });
   });
 
@@ -28,9 +28,9 @@ export default({ config, db }) => {
   api.get('/', authenticate, (req, res) => {
     User.find({}, (err, users) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json(users);
+      res.status(200).json(users);
     });
   });
 
@@ -38,9 +38,9 @@ export default({ config, db }) => {
   api.get('/:id', authenticate, (req, res) => {
     User.findById(req.params.id, (err, user) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json(user);
+      res.status(200).json(user);
     });
   });
 
@@ -48,7 +48,7 @@ export default({ config, db }) => {
   api.put('/:id', authenticate, (req, res) => {
     User.findById(req.params.id, (err, user) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
       user.name = req.body.name;
       user.email = req.body.email;
@@ -56,9 +56,9 @@ export default({ config, db }) => {
       user.avatarColor = req.body.avatarColor;
       user.save(err => {
         if (err) {
-          res.send(err);
+          res.status(500).json({ message: err });
         }
-        res.json({ message: 'User info updated' });
+        res.status(200).json({ message: 'User info updated' });
       });
     });
   });
@@ -69,9 +69,9 @@ export default({ config, db }) => {
       .findOne({ 'email': req.params.email })
       .exec((err, userData) => {
         if (err) {
-          res.send(err);
+          res.status(500).json({ message: err });
         }
-        res.json(userData);
+        res.status(200).json(userData);
       });
   });
 
@@ -81,9 +81,9 @@ export default({ config, db }) => {
       _id: req.params.id
     }, (err, user) => {
       if (err) {
-        res.send(err)
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'User Successfully Removed'});
+      res.status(200).json({ message: 'User Successfully Removed'});
     });
   });
 
@@ -91,9 +91,9 @@ export default({ config, db }) => {
   api.delete('/', authenticate, (req, res) => {
     User.find({}, (err, users) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Users All Removed'});
+      res.status(200).json({ message: 'Users All Removed'});
     });
   });
 

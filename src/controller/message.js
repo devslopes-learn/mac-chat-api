@@ -20,9 +20,9 @@ export default({ config, db }) => {
 
     newMessage.save(err => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Message saved successfully' })
+      res.status(200).json({ message: 'Message saved successfully' })
     });
   });
 
@@ -30,7 +30,7 @@ export default({ config, db }) => {
   api.put('/:id', authenticate, (req, res) => {
     Message.findById(req.params.id, (err, message) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
       message.messageBody = req.body.messageBody;
       message.userId = req.body.userId;
@@ -41,9 +41,9 @@ export default({ config, db }) => {
 
       message.save(err => {
         if (err) {
-          res.send(err);
+          res.status(500).json({ message: err });
         }
-        res.json({ message: 'Message updated' });
+        res.status(200).json({ message: 'Message updated' });
       });
     });
   });
@@ -53,9 +53,9 @@ export default({ config, db }) => {
     Message
       .find({ 'channelId' : req.params.channelId }, (err, messages) => {
         if(err) {
-          res.send(err);
+          res.status(500).json({ message: err });
         }
-        res.json(messages);
+        res.status(200).json(messages);
       });
   });
 
@@ -65,9 +65,9 @@ export default({ config, db }) => {
       _id: req.params.id
     }, (err, message) => {
       if (err) {
-        res.send(err)
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Message Successfully Removed'});
+      res.status(200).json({ message: 'Message Successfully Removed'});
     });
   });
 
@@ -75,9 +75,9 @@ export default({ config, db }) => {
   api.delete('/', authenticate, (req, res) => {
     Message.find({}, (err, users) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Users All Removed'});
+      res.status(200).json({ message: 'Users All Removed'});
     });
   });
 
