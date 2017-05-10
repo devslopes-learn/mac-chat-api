@@ -99,20 +99,3 @@ export default({ config, db }) => {
 
   return api;
 }
-
-//functions
-//create user
-let createNewUser = (req, res) => {
-  let newUser = new User();
-  newUser.name = req.body.name;
-  newUser.email = req.body.email;
-  newUser.avatarName = req.body.avatarName;
-  newUser.avatarColor = req.body.avatarColor;
-
-  newUser.save(err => {
-    if (err) {
-      res.status(500).json({ message: err });
-    }
-    res.status(200).json({ message: 'User saved successfully' })
-  });
-}
