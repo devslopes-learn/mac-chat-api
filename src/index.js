@@ -63,18 +63,17 @@ io.on('connection', function(client) {
   });
 
   //Listens for user typing.
-  client.on("startType", function(userName){
-  console.log("User " + userName + " is writing a message...");
-  typingUsers[userName] = 1;
-  io.emit("userTypingUpdate", typingUsers);
-});
+  client.on("startType", function(userName, channelId){
+    console.log("User " + userName + " is writing a message...");
+    typingUsers[userName] = channelId;
+    io.emit("userTypingUpdate", typingUsers, channelId);
+  });
 
-
-client.on("stopType", function(userName){
-  console.log("User " + userName + " has stopped writing a message...");
-  delete typingUsers[userName];
-  io.emit("userTypingUpdate", typingUsers);
-});
+  client.on("stopType", function(userName){
+    console.log("User " + userName + " has stopped writing a message...");
+    delete typingUsers[userName];
+    io.emit("userTypingUpdate", typingUsers);
+  });
 
   //Listens for a new chat message
   client.on('newMessage', function(messageBody, userId, channelId, userName, userAvatar, userAvatarColor) {
