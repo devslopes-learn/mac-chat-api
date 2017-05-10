@@ -10,19 +10,7 @@ import { generateAccessToken, respond, authenticate } from '../middleware/authMi
 export default ({ config, db }) => {
   let api = Router();
 
-  // '/v1/account'
-  api.post('/registerUser', (req, res) => {
-    Account.register(new Account({ username: req.body.email}), req.body.password, function(err, account) {
-      if(err) {
-        res.status(500).json({ message: err });
-      }
-      passport.authenticate('local', { session: false })(req, res, () => {
-          res.status(200).send('Successfully created new account');
-      });
-    });
-  });
-
-  // '/v1/account'
+  // '/v1/account/register'
   api.post('/register', (req, res) => {
     Account.register(new Account({ username: req.body.email }), req.body.password, function(err, account) {
       if(err) {
