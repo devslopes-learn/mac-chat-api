@@ -16,9 +16,9 @@ export default({ config, db }) => {
 
     newChannel.save(err => {
       if(err){
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Channel saved successfully' })
+      res.status(200).json({ message: 'Channel saved successfully' })
     });
   });
 
@@ -26,9 +26,9 @@ export default({ config, db }) => {
   api.get('/', authenticate, (req, res) => {
     Channel.find({}, (err, channels) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json(channels);
+      res.status(200).json(channels);
     });
   });
 
@@ -36,9 +36,9 @@ export default({ config, db }) => {
   api.get('/:id', authenticate, (req, res) => {
     Channel.findById(req.params.id, (err, channel) => {
       if (err) {
-        res.send(err);
+        res.status(500).json({ message: err });
       }
-      res.json(channel);
+      res.status(200).json(channel);
     });
   });
 
@@ -48,9 +48,9 @@ export default({ config, db }) => {
       _id: req.params.id
     }, (err, channel) => {
       if (err) {
-        res.send(err)
+        res.status(500).json({ message: err });
       }
-      res.json({ message: 'Channel Successfully Removed'});
+      res.status(200).json({ message: 'Channel Successfully Removed'});
     });
   });
 
