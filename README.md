@@ -11,7 +11,8 @@ your development skills to the next level, check out our API course.
   *  Create a new user account at `/v1/account/register`
 2.  Ensure that you use the middleware function `authenticated` for each of your new routes on any request that must first have an authenticated user
   *  Data that you want made to the public (without a user first loggin in) can omit the `authenticated` middleware
-3.  Currently the express app assumes the database is on mLab using Heroku Deploy button at bottom. You can change the URL of the Mongo database to any location `src/config/index.js`.
+3.  Currently the express app assumes the database is on mLab using Heroku Deploy button at bottom. You can change the URL of the Mongo database to any location `src/config/index.js`
+4. For a full review on how this api works, checkout our Mac Course on the Devslopes platform (https://devslopes.com)
 
 ##### Dependencies
 *  npm - the `package.json` file lists all of the npm dependencies
