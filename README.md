@@ -28,6 +28,7 @@ your development skills to the next level, check out our API course.
 
 Getting Started
 ---------------
+### Run a local instance
 
 ```sh
 # Install dependencies
@@ -42,6 +43,8 @@ npm run dev
 npm run build
 
 ```
+
+### Run a live online instance 
 
 You can also spin up a free Heroku dyno to test it out:
 
