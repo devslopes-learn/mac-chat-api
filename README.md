@@ -47,6 +47,9 @@ npm run build
 ```
 
 #### Run a live online instance 
+* Go to `src/config/index.js` 
+* change port to `"port": process.env.PORT`
+* change mongoUrl to `process.env.MONGODB_URI`
 
 You can also spin up a free Heroku dyno to test it out:
 
