@@ -7,7 +7,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const messageSchema = new Schema({
   messageBody: String, default: "",
-  timeStamp: {type: Date, default: Date.now},
+  timeStamp: {type: String, default: Date.now.toString()},
   userId: {type: ObjectId, ref: 'User'},
   channelId: {type: ObjectId, ref: 'Channel'},
   userName: String, default: "",
