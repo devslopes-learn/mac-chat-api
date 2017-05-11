@@ -28,8 +28,10 @@ your development skills to the next level, check out our API course.
 
 Getting Started
 ---------------
-### Run a local instance
-
+#### Run a local instance
+* Go to `src/config/index.js` 
+* change port to `"port": 3005`
+* change mongoUrl to `"mongoUrl": "mongodb://localhost:27017/chat-api"`
 ```sh
 # Install dependencies
 npm install
@@ -44,7 +46,7 @@ npm run build
 
 ```
 
-### Run a live online instance 
+#### Run a live online instance 
 
 You can also spin up a free Heroku dyno to test it out:
 
