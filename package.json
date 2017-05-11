@@ -5,11 +5,7 @@
   "main": "dist",
   "scripts": {
     "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
-    "build": "babel src -s -D -d dist --presets es2015,stage-0",
-    "prestart": "npm run -s build",
-    "start": "node ./dist/index.js",
-    "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./dist/index.js"
   },
   "eslintConfig": {
     "parserOptions": {
