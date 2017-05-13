@@ -103,4 +103,7 @@ io.on('connection', function(client) {
 app.server.listen(config.port);
 console.log(`Started on port ${app.server.address().port}`);
 
-export default app;
+module.exports = {
+  app,
+  io
+}
