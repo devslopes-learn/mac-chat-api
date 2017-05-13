@@ -5,22 +5,25 @@ import Channel from '../model/channel';
 
 import { authenticate } from '../middleware/authMiddleware';
 
+module.exports.respond = function(socket){
+
+    socket.on('newChannel',function(name, description){
+      //Create channel
+      let newChannel = new Channel({
+        name: name,
+        description: description,
+      });
+      //Save it to database
+      newChannel.save(function(err, channel){
+          //Send message to those connected in the room
+          console.log('new channel created');
+          socket.emit("channelCreated", channel.name, channel.description, channel.id);
+        });
+      });
+}
+
 export default({ config, db }) => {
   let api = Router();
-
-  //'/v1/channel/add' - Create
-  api.post('/add', authenticate, (req, res) => {
-    let newChannel = new Channel();
-    newChannel.name = req.body.name;
-    newChannel.description = req.body.description;
-
-    newChannel.save(err => {
-      if(err){
-        res.status(500).json({ message: err });
-      }
-      res.status(200).json({ message: 'Channel saved successfully' })
-    });
-  });
 
   // '/v1/channel/' - Read
   api.get('/', authenticate, (req, res) => {
