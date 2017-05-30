@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import config from '../config';
 import Account from '../model/account';
+import UserDataExt from './extensions/userData-ext';
 
 import { generateAccessToken, respond, authenticate } from '../middleware/authMiddleware';
 
@@ -23,7 +24,21 @@ export default ({ config, db }) => {
   });
 
   // '/v1/account/login'
-  api.post('/login', passport.authenticate('local', { session: false, scope: [] }), generateAccessToken, respond);
+  api.post('/login', (req, res, next) => {
+		UserDataExt.findUserByEmail(req.body.email, (err, userData) => {
+      if (err) {
+        res.status(409).json({ message: `An error occured: ${err.message}`});
+      } else if (!userData) {
+				res.status(300).json({ message: `Email ${req.body.email} is not registered`});
+      } else {
+				next();
+			}
+    });
+	}, passport.authenticate('local', { session: false, scope: [] }), (err, req, res, next) => {
+		if (err) {
+			res.status(300).json({ message: `Password is incorrect`});
+		}
+	}, generateAccessToken, respond);
 
   // '/v1/account/logout'
   api.get('/logout', authenticate, (req, res) => {
