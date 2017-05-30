@@ -13,13 +13,22 @@ export default ({ config, db }) => {
 
   // '/v1/account/register'
   api.post('/register', (req, res) => {
-    Account.register(new Account({ username: req.body.email }), req.body.password, function(err, account) {
-      if(err) {
-        res.status(500).json({ message: err });
+    UserDataExt.findUserByEmail(req.body.email, (err, userData) => {
+      if (err) {
+        res.status(409).json({ message: `An error occured: ${err.message}`});
+      } else if (userData) {
+        res.status(300).json({ message: `Email ${req.body.email} is already registered`});
       }
-      passport.authenticate('local', { session: false })(req, res, () => {
-          res.status(200).send('Successfully created new account');
-      });
+      else {
+        Account.register(new Account({ username: req.body.email }), req.body.password, function(err, account) {
+          if(err) {
+            res.status(500).json({ message: err });
+          }
+          passport.authenticate('local', { session: false })(req, res, () => {
+              res.status(200).send('Successfully created new account');
+          });
+        });
+      }
     });
   });
 
