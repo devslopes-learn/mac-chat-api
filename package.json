@@ -1,6 +1,9 @@
 {
   "name": "slacky-slack",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.10.2"
+  },
   "description": "Prebuilt api for slack app clone.",
   "main": "dist",
   "scripts": {
