@@ -41,7 +41,7 @@ export default ({ config, db }) => {
 				next();
 			}
     });
-	}, passport.authenticate('local', { session: false, scope: [] }), (err, req, res, next) => {
+	}, passport.authenticate('local', { session: false, scope: [], failWithError: true }), (err, req, res, next) => {
 		if (err) {
 			res.status(300).json({ message: `Password is incorrect`});
 		}
