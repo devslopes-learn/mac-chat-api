@@ -43,7 +43,7 @@ export default ({ config, db }) => {
     });
 	}, passport.authenticate('local', { session: false, scope: [], failWithError: true }), (err, req, res, next) => {
 		if (err) {
-			res.status(300).json({ message: `Email or password invalid, please check your credentials`});
+			res.status(401).json({ message: `Email or password invalid, please check your credentials`});
 		}
 	}, generateAccessToken, respond);
 
