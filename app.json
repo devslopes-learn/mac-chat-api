@@ -5,5 +5,4 @@
   "repository": "https://github.com/devslopes/mac-chat-api",
   "logo": "https://mlab.com/company/brand/resources/mLab-logo-onlight.png",
   "keywords": ["node", "express", "angular", "angular2", "MEAN", "mongodb", "REST", "API"],
-  "addons": ["mongolab"]
 }
