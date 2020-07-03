@@ -9,7 +9,6 @@ export default callback => {
     return mongoose.connect(config.mongoUrl, function (err, database) {
       console.log("Trying to connect to mongodb...")
       if (err) {
-        console.log(err);
         console.log("Waiting for 5 seconds to retry...")
         if (retryCount < 4) {
           setTimeout(connectWithRetry, 5000)
@@ -17,6 +16,7 @@ export default callback => {
           return
         }
 
+        console.log(err);
         console.log("Giving up after 5 attempts...")
         proccess.exit(-1)
       }
