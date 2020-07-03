@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    command: --serviceExecutor adaptive
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: smack-chat
+      MONGO_INITDB_ROOT_PASSWORD: smack123
+      MONGO_INITDB_DATABASE: smack_chat
+    volumes:
+      - ./001_users.js:/docker-entrypoint-initdb.d/001_users.js:ro
+  mac-chat-api:
+    build: .
+    depends_on:
+      - mongodb
+    ports:
+      - "3030:3030"
+    environment:
+      PORT: 3030
+      MONGODB_URI: "mongodb://mongodb:27017/smack-chat"
