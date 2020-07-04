@@ -7,8 +7,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: smack-chat
-      MONGO_INITDB_ROOT_PASSWORD: smack123
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
       MONGO_INITDB_DATABASE: smack_chat
     volumes:
       - ./001_users.js:/docker-entrypoint-initdb.d/001_users.js:ro
@@ -17,7 +17,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - "3030:3030"
+      - "3005:3005"
     environment:
-      PORT: 3030
-      MONGODB_URI: "mongodb://mongodb:27017/smack-chat"
+      PORT: 3005
+      MONGODB_URI: "mongodb://smack_chat:smack123@mongodb:27017/smack_chat"
