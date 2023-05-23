@@ -7,12 +7,12 @@
   "description": "Prebuilt api for slack app clone.",
   "main": "dist",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon -w src --exec "babel-node src --presets @babel/preset-env"",
+    "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src --presets @babel/preset-env\"",
     "build": "babel src -s -D -d dist --presets @babel/preset-env",
     "prestart": "npm run -s build",
     "start": "node ./dist/index.js",
     "lint": "eslint src",
-    "test": "echo "Error: no test specified" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
     "parserOptions": {
